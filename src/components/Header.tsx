@@ -8,7 +8,7 @@ const header = function () {
       <img src={logo} alt="MKS Sistemas logo" />
       <button className={"cart-button"}>
         <img src={cart} alt="cart image" />
-        <span className="quantity"></span>
+        <span className="quantity">0</span>
       </button>
     </div>
   );
