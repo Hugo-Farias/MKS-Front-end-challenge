@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "git": "tsc && git add -A",
+    "git": "git add -A && tsc && git commit -m",
+    "postgit": "git push --ALL",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
