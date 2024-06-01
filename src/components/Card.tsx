@@ -3,17 +3,24 @@ import buy from "../assets/buy.svg";
 import Price from "./Card/Price";
 import { useState } from "react";
 import { ProductT } from "../types";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
+// import { getSlice } from "../helper";
 
 const Card = function (props: { product: ProductT }) {
   const { name, photo, price, description } = props.product;
   const [added, setAdded] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   const clickHandle = function () {
     setAdded(true);
 
     setTimeout(() => setAdded(false), 2000);
 
-    console.log(props.product);
+    // @ts-ignore
+    dispatch(addItem(props.product));
+
+    // console.log(getSlice().items);
   };
 
   return (

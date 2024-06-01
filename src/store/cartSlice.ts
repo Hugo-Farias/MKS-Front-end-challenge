@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartItem } from "../types";
+import { CartItem, ProductT } from "../types";
 
 export type CartStateT = {
   items: CartItem[];
@@ -29,35 +29,34 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<CartItem>) => {
-      const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
-      );
+    addItem: (state, { payload }: PayloadAction<ProductT>) => {
+      console.log(state.items);
+      const existingItem = state.items.find((item) => item.id === payload.id);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.push({ ...payload, quantity: 1 });
       }
       state.total++;
     },
-    removeItem: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+    removeItem: (state, { payload }: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== payload);
       state.total--;
     },
-    increaseQuantity: (state, action: PayloadAction<number>) => {
-      const item = state.items.find((item) => item.id === action.payload);
+    increaseQuantity: (state, { payload }: PayloadAction<number>) => {
+      const item = state.items.find((item) => item.id === payload);
       if (item) {
         item.quantity += 1;
         state.total++;
       }
     },
-    decreaseQuantity: (state, action: PayloadAction<number>) => {
-      const item = state.items.find((item) => item.id === action.payload);
+    decreaseQuantity: (state, { payload }: PayloadAction<number>) => {
+      const item = state.items.find((item) => item.id === payload);
       if (item && item.quantity > 1) {
         item.quantity -= 1;
         state.total--;
       } else {
-        state.items = state.items.filter((item) => item.id !== action.payload);
+        state.items = state.items.filter((item) => item.id !== payload);
       }
     },
   },
