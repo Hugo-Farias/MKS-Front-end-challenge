@@ -5,13 +5,13 @@
     transform: translateY(0);
   }
   25% {
-    transform: translateY(-30px); /* Initial jump height */
+    transform: translateY(10px); /* Initial jump height */
   }
   50% {
     transform: translateY(0); /* Start coming down */
   }
   75% {
-    transform: translateY(10px); /* Add weight, go down further */
+    transform: translateY(-5px); /* Add weight, go down further */
   }
   100% {
     transform: translateY(0); /* Final position */
@@ -53,10 +53,10 @@
     }
 
     &.updated {
-      background: linear-gradient(90deg, #ffffff, forestgreen, #ffffff);
-      background-size: 1000% 100%;
-      animation: gradient 0.4s linear forwards;
-      //animation: jump 0.1s ease-out forwards;
+      //background: linear-gradient(90deg, #ffffff, forestgreen, #ffffff);
+      //background-size: 1000% 100%;
+      //animation: gradient 0.4s linear forwards;
+      animation: jump 0.1s ease-out forwards;
     }
   }
 }
