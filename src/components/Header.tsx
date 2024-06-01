@@ -2,18 +2,29 @@ import "./Header.scss";
 import logo from "../assets/logo.svg";
 import cart from "../assets/cart.svg";
 import { getSlice } from "../helper";
+import { useEffect, useState } from "react";
 
-// type propsT = { quantity: number };
+let runtime = 0;
 
 const header = function () {
   const slice = getSlice().total;
+  const [update, setUpdate] = useState<null | string>(null);
 
-  console.log(slice);
+  useEffect(() => {
+    if (runtime <= 2) return;
+    setUpdate("updated");
+
+    setTimeout(() => {
+      setUpdate("");
+    }, 200);
+  }, [slice]);
+
+  runtime++;
 
   return (
     <header className="header">
       <img src={logo} alt="MKS Sistemas logo" />
-      <button className={"cart-button"}>
+      <button className={`cart-button ${update}`}>
         <img src={cart} alt="cart image" />
         <span className="quantity">{slice}</span>
       </button>

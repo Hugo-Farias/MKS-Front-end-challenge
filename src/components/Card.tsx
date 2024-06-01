@@ -5,13 +5,11 @@ import { useState } from "react";
 import { ProductT } from "../types";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice";
-import { getSlice } from "../helper";
 
 const Card = function (props: { product: ProductT }) {
   const { name, photo, price, description } = props.product;
   const [added, setAdded] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const slice = getSlice().items;
 
   const clickHandle = function () {
     setAdded(true);
@@ -20,8 +18,6 @@ const Card = function (props: { product: ProductT }) {
 
     // @ts-ignore
     dispatch(addItem(props.product));
-
-    console.log(slice[0]);
   };
 
   return (
