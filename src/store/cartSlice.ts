@@ -29,15 +29,22 @@ const cartSlice = createSlice({
       state.totalItems += 1;
       state.totalPrice += +payload.price;
     },
-    removeItem: (state, { payload }: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.id !== payload);
-      state.totalItems -= 1;
+    removeItem: (
+      state,
+      {
+        payload,
+      }: PayloadAction<{ id: number; price: number; quantity: number }>
+    ) => {
+      state.items = state.items.filter((item) => item.id !== payload.id);
+      state.totalItems -= payload.quantity;
+      state.totalPrice -= payload.price * payload.quantity;
     },
     increaseQuantity: (state, { payload }: PayloadAction<number>) => {
       const item = state.items.find((item) => item.id === payload);
       if (item) {
         item.quantity += 1;
         state.totalItems += 1;
+        state.totalPrice += +item.price;
       }
     },
     decreaseQuantity: (state, { payload }: PayloadAction<number>) => {
@@ -45,6 +52,7 @@ const cartSlice = createSlice({
       if (!item || item.quantity - 1 < 1) return;
       item.quantity -= 1;
       state.totalItems -= 1;
+      state.totalPrice -= +item.price;
     },
     toggleCart: (state, { payload }: PayloadAction<boolean>) => {
       state.open = payload;

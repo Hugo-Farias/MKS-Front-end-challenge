@@ -18,18 +18,6 @@
   }
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 100% 100%;
-  }
-  50% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
 .header {
   position: fixed;
   z-index: 1;
@@ -40,6 +28,7 @@
   padding-inline: 2rem;
 
   & > .cart-button {
+    cursor: pointer;
     @include flex-center(space-evenly);
     //background: linear-gradient(to top right, purple, transparent);
     min-height: 2.6rem;
@@ -53,9 +42,6 @@
     }
 
     &.updated {
-      //background: linear-gradient(90deg, #ffffff, forestgreen, #ffffff);
-      //background-size: 1000% 100%;
-      //animation: gradient 0.4s linear forwards;
       animation: jump 0.1s ease-out forwards;
     }
   }

@@ -40,6 +40,7 @@ const Checkout = function () {
           </button>
         </div>
         <div className="main-section">{checkoutJSX}</div>
+        <div className="total-price">{slice.totalPrice}</div>
       </div>
     </>
   );

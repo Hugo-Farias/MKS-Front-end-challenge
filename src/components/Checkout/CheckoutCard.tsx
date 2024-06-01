@@ -10,7 +10,7 @@ import {
   removeItem,
 } from "../../store/cartSlice";
 
-type propsT = {
+type checkoutT = {
   id: number;
   image: string;
   name: string;
@@ -18,7 +18,7 @@ type propsT = {
   price: string;
 };
 
-const CheckoutCard = function (props: propsT) {
+const CheckoutCard = function (props: checkoutT) {
   const { image, name, quantity, price, id } = props;
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const CheckoutCard = function (props: propsT) {
   };
 
   const handleRemove = function () {
-    dispatch(removeItem(id));
+    dispatch(removeItem({ id: id, price: +price, quantity: quantity }));
   };
 
   return (
