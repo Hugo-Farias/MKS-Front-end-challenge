@@ -17,7 +17,7 @@ const Card = function (props: propsT) {
     <div className="card">
       <img src={photo} alt={`${name} product photo`} />
       <div className="name-price-cont">
-        <div className="name">{name}</div>
+        <h1 className="name">{name}</h1>
         <Price price={+price} />
       </div>
       <div className="description">{description}</div>

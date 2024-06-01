@@ -19,12 +19,16 @@
 
   & > .name-price-cont {
     @include flex-center(space-between);
-    align-items: flex-start;
+    //align-items: flex-start;
 
     & > .name {
       color: #2c2c2c;
       font-size: 1.6rem;
       line-height: 1.9rem;
     }
+  }
+
+  & > .description {
+    font-weight: 300;
   }
 }
