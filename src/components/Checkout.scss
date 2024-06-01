@@ -1,19 +1,40 @@
 @import "../variables";
 
 .cart-section {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   padding: 2.5rem;
   z-index: 10;
-  height: 100vh;
+  height: 100%;
   width: 33rem;
   box-shadow: black;
   background-color: $color-primary;
 
-  & > h1 {
-    color: $color-light-font;
-    font-weight: 600;
-    font-size: 2.7rem;
+  & > .top {
+    @include flex-center(space-between);
+
+    & > h1 {
+      color: $color-light-font;
+      font-weight: 600;
+      font-size: 2.7rem;
+    }
+
+    & > .close-btn {
+      background-color: black;
+      cursor: pointer;
+      height: 4.5rem;
+      aspect-ratio: 1;
+      border: transparent;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: lighten($color-primary, 50%);
+      }
+
+      & > img {
+        filter: grayscale(100%);
+      }
+    }
   }
 }
