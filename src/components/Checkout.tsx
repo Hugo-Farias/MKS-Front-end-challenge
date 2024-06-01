@@ -45,6 +45,7 @@ const Checkout = function () {
           <div className="total-price">
             <div>{slice.totalPrice}</div>
           </div>
+          <button className="confirm">Finalizar Compra</button>
         </div>
         <div className={`background ${slice.open}`} onClick={handleClose} />
       </>
