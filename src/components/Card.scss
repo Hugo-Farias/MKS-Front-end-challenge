@@ -23,18 +23,5 @@
       font-size: 1.6rem;
       line-height: 1.9rem;
     }
-
-    & > .price {
-      background-color: black;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: 1rem;
-      border-radius: 0.8rem;
-      //text-align: center;
-
-      &::before {
-        content: "R$";
-      }
-    }
   }
 }
