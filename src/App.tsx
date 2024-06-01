@@ -5,7 +5,7 @@ import Products from "./components/Products";
 function App() {
   return (
     <>
-      <Header quantity={3} />
+      <Header />
       <Products />
       <footer>MKS Sistemas © Todos os direitos reservados</footer>
     </>

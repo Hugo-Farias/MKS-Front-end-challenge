@@ -19,7 +19,7 @@ export type CartItem = {
   brand: string;
   description: string;
   photo: string;
-  price: number;
+  price: string;
   createdAt: string;
   updatedAt: string;
   quantity: number; // to track the quantity of each item
