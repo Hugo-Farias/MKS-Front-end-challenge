@@ -6,10 +6,10 @@
   border-radius: 0.8rem;
   box-shadow: rgba(0, 0, 0, 0.23) -5px 5px 10px;
   width: 25rem;
-  height: 22rem;
+  //height: 22rem;
   margin-inline: auto;
   overflow: hidden;
-  padding-inline: 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
 
   & > .close-btn {
     position: absolute;
@@ -27,10 +27,11 @@
     width: 100%;
     text-align: center;
     font-size: 1.6rem;
-    margin-bottom: 2rem;
+    margin-block: 2rem;
   }
 
   & > .price-quantity-cont {
+    @include flex-center(space-between);
     //background-color: red;
 
     & > .quantity-set {
@@ -53,6 +54,7 @@
 
       & > .subtract,
       & > .add {
+        cursor: pointer;
         position: relative;
 
         &::after {

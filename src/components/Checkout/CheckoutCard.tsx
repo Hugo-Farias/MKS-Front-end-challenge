@@ -2,6 +2,7 @@ import "./CheckoutCard.scss";
 import x from "../../assets/x.svg";
 import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
+import Price from "../Card/Price";
 
 type propsT = {
   image: string;
@@ -11,7 +12,7 @@ type propsT = {
 };
 
 const CheckoutCard = function (props: propsT) {
-  const { image, name, quantity } = props;
+  const { image, name, quantity, price } = props;
 
   return (
     <div className="checkout-card">
@@ -30,6 +31,7 @@ const CheckoutCard = function (props: propsT) {
             <img src={plus} alt="add quantity" />
           </button>
         </div>
+        <Price price={+price} />
       </div>
     </div>
   );
