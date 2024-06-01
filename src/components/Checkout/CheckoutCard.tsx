@@ -3,8 +3,15 @@ import x from "../../assets/x.svg";
 import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
 import Price from "../Card/Price";
+import { useDispatch } from "react-redux";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeItem,
+} from "../../store/cartSlice";
 
 type propsT = {
+  id: number;
   image: string;
   name: string;
   quantity: number;
@@ -12,22 +19,35 @@ type propsT = {
 };
 
 const CheckoutCard = function (props: propsT) {
-  const { image, name, quantity, price } = props;
+  const { image, name, quantity, price, id } = props;
+  const dispatch = useDispatch();
+
+  const handleQuantity = function (add: boolean) {
+    if (add) {
+      dispatch(increaseQuantity(id));
+    } else {
+      dispatch(decreaseQuantity(id));
+    }
+  };
+
+  const handleRemove = function () {
+    dispatch(removeItem(id));
+  };
 
   return (
     <div className="checkout-card">
-      <span className="close-btn">
+      <button className="close-btn" onClick={handleRemove}>
         <img src={x} alt="close button" />
-      </span>
+      </button>
       <img src={image} alt="product image" />
       <div className="name">{name}</div>
       <div className="price-quantity-cont">
         <div className="quantity-set">
-          <button className="subtract">
+          <button className="subtract" onClick={() => handleQuantity(false)}>
             <img src={minus} alt="subtact quantity" />
           </button>
           <span className="quantity">{quantity}</span>
-          <button className="add">
+          <button className="add" onClick={() => handleQuantity(true)}>
             <img src={plus} alt="add quantity" />
           </button>
         </div>

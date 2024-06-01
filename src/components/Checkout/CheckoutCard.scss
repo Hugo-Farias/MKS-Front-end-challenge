@@ -12,6 +12,9 @@
   padding: 0.5rem 2rem 2rem 2rem;
 
   & > .close-btn {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
     position: absolute;
     right: 1.4rem;
     top: 1rem;
