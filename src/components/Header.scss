@@ -28,7 +28,6 @@
   padding-inline: 2rem;
 
   & > .cart-button {
-    cursor: pointer;
     @include flex-center(space-evenly);
     //background: linear-gradient(to top right, purple, transparent);
     min-height: 2.6rem;
