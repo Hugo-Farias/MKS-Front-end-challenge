@@ -29,26 +29,25 @@ const Checkout = function () {
   };
 
   return (
-    <CSSTransition
-      in={slice.open}
-      timeout={300}
-      classNames="fade"
-      unmountOnExit
-    >
-      <div className={`background ${slice.open}`} onClick={handleClose} />
-      <div className={`checkout ${slice.open}`}>
-        <div className="top">
-          <h1>
-            Carrinho
-            <br /> de compras
-          </h1>
-          <button className="close-btn" onClick={handleClose}>
-            <img src={closeBtn} alt="close button" />
-          </button>
+    <CSSTransition in={slice.open} timeout={1000} unmountOnExit>
+      <>
+        <div className="checkout">
+          <div className="top">
+            <h1>
+              Carrinho
+              <br /> de compras
+            </h1>
+            <button className="close-btn" onClick={handleClose}>
+              <img src={closeBtn} alt="close button" />
+            </button>
+          </div>
+          <div className="main-section">{checkoutJSX}</div>
+          <div className="total-price">
+            <div>{slice.totalPrice}</div>
+          </div>
         </div>
-        <div className="main-section">{checkoutJSX}</div>
-        <div className="total-price">{slice.totalPrice}</div>
-      </div>
+        <div className={`background ${slice.open}`} onClick={handleClose} />
+      </>
     </CSSTransition>
   );
 };
