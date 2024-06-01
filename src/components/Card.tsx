@@ -15,7 +15,6 @@ const Card = function (props: propsT) {
   const [added, setAdded] = useState<boolean>(false);
 
   const clickHandle = function () {
-    console.log("click");
     setAdded(true);
 
     setTimeout(() => setAdded(false), 2000);

@@ -1,11 +1,11 @@
-import "./Main.scss";
+import "./Products.scss";
 import Card from "./Card";
-import { Products } from "../types";
+import { ProductsCont } from "../types";
 import DUMMY_DATA from "../../DUMMY_DATA.json";
 
-const { products }: Products = DUMMY_DATA;
+const { products }: ProductsCont = DUMMY_DATA;
 
-const Main = function () {
+const Products = function () {
   const jsx = products.map((v, i) => {
     return (
       <Card
@@ -21,4 +21,4 @@ const Main = function () {
   return <div className="main">{jsx}</div>;
 };
 
-export default Main;
+export default Products;

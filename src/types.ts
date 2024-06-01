@@ -9,6 +9,6 @@ export type Product = {
   updatedAt: string;
 };
 
-export type Products = {
+export type ProductsCont = {
   products: Product[];
 };

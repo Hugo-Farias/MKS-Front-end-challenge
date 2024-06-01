@@ -1,12 +1,12 @@
 import "./App.scss";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import Products from "./components/Products";
 
 function App() {
   return (
     <>
       <Header quantity={3} />
-      <Main />
+      <Products />
       <footer>MKS Sistemas © Todos os direitos reservados</footer>
     </>
   );
