@@ -1,4 +1,4 @@
-export type Product = {
+export type ProductT = {
   id: number;
   name: string;
   brand: string;
@@ -9,6 +9,18 @@ export type Product = {
   updatedAt: string;
 };
 
-export type ProductsCont = {
-  products: Product[];
+export type ProductsT = {
+  products: ProductT[];
+};
+
+export type CartItem = {
+  id: number;
+  name: string;
+  brand: string;
+  description: string;
+  photo: string;
+  price: number;
+  createdAt: string;
+  updatedAt: string;
+  quantity: number; // to track the quantity of each item
 };

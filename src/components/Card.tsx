@@ -2,22 +2,18 @@ import "./Card.scss";
 import buy from "../assets/buy.svg";
 import Price from "./Card/Price";
 import { useState } from "react";
+import { ProductT } from "../types";
 
-type propsT = {
-  name: string;
-  photo: string;
-  price: string;
-  description: string;
-};
-
-const Card = function (props: propsT) {
-  const { name, photo, price, description } = props;
+const Card = function (props: { product: ProductT }) {
+  const { name, photo, price, description } = props.product;
   const [added, setAdded] = useState<boolean>(false);
 
   const clickHandle = function () {
     setAdded(true);
 
     setTimeout(() => setAdded(false), 2000);
+
+    console.log(props.product);
   };
 
   return (

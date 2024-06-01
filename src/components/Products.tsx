@@ -1,21 +1,13 @@
 import "./Products.scss";
 import Card from "./Card";
-import { ProductsCont } from "../types";
+import { ProductsT } from "../types";
 import DUMMY_DATA from "../../DUMMY_DATA.json";
 
-const { products }: ProductsCont = DUMMY_DATA;
+const { products }: ProductsT = DUMMY_DATA;
 
 const Products = function () {
   const jsx = products.map((v, i) => {
-    return (
-      <Card
-        key={i}
-        name={v.name}
-        photo={v.photo}
-        price={v.price}
-        description={v.description}
-      />
-    );
+    return <Card key={i} product={v} />;
   });
 
   return <div className="main">{jsx}</div>;
