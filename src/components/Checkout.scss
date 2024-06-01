@@ -1,0 +1,19 @@
+@import "../variables";
+
+.cart-section {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 2.5rem;
+  z-index: 10;
+  height: 100vh;
+  width: 33rem;
+  box-shadow: black;
+  background-color: $color-primary;
+
+  & > h1 {
+    color: $color-light-font;
+    font-weight: 600;
+    font-size: 2.7rem;
+  }
+}
