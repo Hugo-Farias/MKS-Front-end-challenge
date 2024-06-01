@@ -24,13 +24,16 @@ const CheckoutCard = function (props: checkoutT) {
 
   const handleQuantity = function (add: boolean) {
     if (add) {
+      //@ts-ignore
       dispatch(increaseQuantity(id));
     } else {
+      //@ts-ignore
       dispatch(decreaseQuantity(id));
     }
   };
 
   const handleRemove = function () {
+    //@ts-ignore
     dispatch(removeItem({ id: id, price: +price, quantity: quantity }));
   };
 

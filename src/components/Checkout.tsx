@@ -4,6 +4,7 @@ import CheckoutCard from "./Checkout/CheckoutCard";
 import { getSlice } from "../helper";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
+import { CSSTransition } from "react-transition-group";
 
 const Checkout = function () {
   const slice = getSlice();
@@ -23,11 +24,17 @@ const Checkout = function () {
   });
 
   const handleClose = function () {
+    //@ts-ignore
     dispatch(toggleCart(false));
   };
 
   return (
-    <>
+    <CSSTransition
+      in={slice.open}
+      timeout={300}
+      classNames="fade"
+      unmountOnExit
+    >
       <div className={`background ${slice.open}`} onClick={handleClose} />
       <div className={`checkout ${slice.open}`}>
         <div className="top">
@@ -42,7 +49,7 @@ const Checkout = function () {
         <div className="main-section">{checkoutJSX}</div>
         <div className="total-price">{slice.totalPrice}</div>
       </div>
-    </>
+    </CSSTransition>
   );
 };
 

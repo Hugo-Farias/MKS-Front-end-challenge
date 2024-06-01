@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
 
-// let runtime = 0;
+let runtime = 0;
 
 const header = function () {
   const slice = getSlice().totalItems;
@@ -14,7 +14,7 @@ const header = function () {
   const [update, setUpdate] = useState<null | string>(null);
 
   useEffect(() => {
-    // if (runtime <= 2) return;
+    if (runtime <= 2) return;
     setUpdate("updated");
 
     setTimeout(() => {
@@ -22,9 +22,10 @@ const header = function () {
     }, 200);
   }, [slice]);
 
-  // runtime++;
+  runtime++;
 
   const handleClick = function () {
+    //@ts-ignore
     dispatch(toggleCart(true));
   };
 
