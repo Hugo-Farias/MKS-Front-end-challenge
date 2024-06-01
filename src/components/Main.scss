@@ -1,9 +1,14 @@
 @import "../variables";
 
 .main {
-  @include flex-center(none);
+  $size: 254px;
+  margin: auto;
+  display: grid;
   gap: 1.8rem;
-  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, $size);
+  max-width: calc($size * 5);
+  justify-content: center;
+  justify-items: center;
   padding-block: 7rem;
   //background-color: lightgray;
 }

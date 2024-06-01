@@ -37,7 +37,7 @@
 
   & > .buy-btn {
     @include flex-center();
-    transition: background-color 0.1s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     gap: 1.3rem;
     inset: auto auto 0 0;
     height: 3.672rem;
@@ -46,6 +46,20 @@
     position: absolute;
     background-color: $color-primary;
     cursor: pointer;
+
+    &.true,
+    &.true:hover {
+      cursor: inherit;
+      background-color: forestgreen;
+
+      & img {
+        display: none;
+      }
+
+      //& h2 {
+      //  display: none;
+      //}
+    }
 
     & > h2 {
       color: $color-light-font;
