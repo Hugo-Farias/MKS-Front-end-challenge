@@ -20,7 +20,7 @@ const Checkout = function () {
 
   return (
     <>
-      <div className="background" />
+      {/*<div className="background" />*/}
       <div className="checkout">
         <div className="top">
           <h1>

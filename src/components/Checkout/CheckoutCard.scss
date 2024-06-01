@@ -1,8 +1,32 @@
 .checkout-card {
+  position: relative;
   background-color: #ffffff;
   border-radius: 0.8rem;
   box-shadow: rgba(0, 0, 0, 0.23) -5px 5px 10px;
   width: 25rem;
-  height: 25rem;
+  height: 22rem;
   margin-inline: auto;
+  overflow: hidden;
+
+  & > .close-btn {
+    position: absolute;
+    right: 1.4rem;
+    top: 1rem;
+  }
+
+  & > img {
+    width: 13rem;
+    display: block;
+    margin-inline: auto;
+  }
+
+  & > .name {
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  & > .price-quantity-cont {
+    background-color: red;
+  }
 }
