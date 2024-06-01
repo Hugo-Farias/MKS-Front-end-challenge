@@ -1,6 +1,7 @@
 import "./Card.scss";
 import buy from "../assets/buy.svg";
 import Price from "./Card/Price";
+import { useState } from "react";
 
 type propsT = {
   name: string;
@@ -11,6 +12,7 @@ type propsT = {
 
 const Card = function (props: propsT) {
   const { name, photo, price, description } = props;
+  const [added, setAdded] = useState<boolean>(false);
 
   return (
     <div className="card">

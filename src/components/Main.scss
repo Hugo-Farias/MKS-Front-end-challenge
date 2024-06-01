@@ -2,9 +2,8 @@
 
 .main {
   @include flex-center(none);
-  padding-top: 7rem;
   gap: 1.8rem;
   flex-direction: column;
+  padding-block: 7rem;
   //background-color: lightgray;
-  //height: calc(100vh - 3.4rem);
 }
