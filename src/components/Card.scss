@@ -1,12 +1,14 @@
 @import "../variables";
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   width: 25.1rem;
   box-shadow: rgba(0, 0, 0, 0.13) 0 2px 8px 0;
   border-radius: 0.8rem;
   background-color: #ffffff;
-  //background-color: lightgray;
-  padding: 1.4rem;
+  padding: 1rem 1.4rem;
 
   & > img {
     display: block;
@@ -17,6 +19,7 @@
 
   & > .name-price-cont {
     @include flex-center(space-between);
+    align-items: flex-start;
 
     & > .name {
       color: #2c2c2c;

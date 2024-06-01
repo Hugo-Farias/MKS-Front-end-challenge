@@ -9,7 +9,9 @@ type propsT = {
 };
 
 const Card = function (props: propsT) {
-  const { name, photo, price } = props;
+  const { name, photo, price, description } = props;
+
+  // console.log(description);
 
   return (
     <div className="card">
@@ -18,6 +20,7 @@ const Card = function (props: propsT) {
         <div className="name">{name}</div>
         <Price price={+price} />
       </div>
+      <div className="description">{description}</div>
     </div>
   );
 };
