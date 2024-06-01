@@ -1,9 +1,22 @@
 @import "../variables";
 
-.cart-section {
+.background {
+  position: fixed;
+  top: 0;
+  //background-color: rgba(0, 0, 0, 0.22);
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   position: fixed;
   right: 0;
   top: 0;
+  overflow: scroll;
   padding: 2.5rem;
   z-index: 10;
   height: 100%;
@@ -21,6 +34,7 @@
     }
 
     & > .close-btn {
+      transition: background-color 0.2s ease-in-out;
       background-color: black;
       cursor: pointer;
       height: 4.5rem;
@@ -29,11 +43,11 @@
       border-radius: 50%;
 
       &:hover {
-        background-color: lighten($color-primary, 50%);
+        background-color: lighten(black, 10%);
       }
 
       & > img {
-        filter: grayscale(100%);
+        //filter: grayscale(100%);
       }
     }
   }
