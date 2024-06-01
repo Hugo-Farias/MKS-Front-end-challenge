@@ -1,17 +1,17 @@
 @import "../variables";
 
 .card {
-  min-width: 25.1rem;
+  width: 25.1rem;
   box-shadow: rgba(0, 0, 0, 0.13) 0 2px 8px 0;
-  //height: 32.8rem;
   border-radius: 0.8rem;
   background-color: #ffffff;
   //background-color: lightgray;
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 1.4rem;
 
   & > img {
-    //width: 100%;
-    max-height: 15.8rem;
+    display: block;
+    margin: auto;
+    height: 15.8rem;
     opacity: 1;
   }
 
@@ -26,11 +26,15 @@
 
     & > .price {
       background-color: black;
-      //height: 2.9rem;
-      font-weight: 900;
+      font-size: 1.5rem;
+      font-weight: 700;
       padding: 1rem;
       border-radius: 0.8rem;
       //text-align: center;
+
+      &::before {
+        content: "R$";
+      }
     }
   }
 }
