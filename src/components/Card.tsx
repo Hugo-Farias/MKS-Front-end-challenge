@@ -1,4 +1,5 @@
 import "./Card.scss";
+import buy from "../assets/buy.svg";
 import Price from "./Card/Price";
 
 type propsT = {
@@ -11,16 +12,18 @@ type propsT = {
 const Card = function (props: propsT) {
   const { name, photo, price, description } = props;
 
-  // console.log(description);
-
   return (
     <div className="card">
-      <img src={photo} alt={`${name} product photo`} />
+      <img src={photo} alt={`foto ${name}`} />
       <div className="name-price-cont">
         <h1 className="name">{name}</h1>
         <Price price={+price} />
       </div>
       <div className="description">{description}</div>
+      <button className="buy-btn">
+        <img src={buy} alt="buy logo" />
+        <h2>Comprar</h2>
+      </button>
     </div>
   );
 };

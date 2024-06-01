@@ -1,6 +1,8 @@
+@import "../../variables";
+
 .price {
   background-color: #373737;
-  color: #ffffff;
+  color: $color-light-font;
   font-size: 1.4rem;
   font-weight: 700;
   padding: 0.5rem;
