@@ -3,12 +3,12 @@
 .main {
   $size: 254px;
   margin: auto;
+  padding-top: 7rem;
   display: grid;
   gap: 1.8rem;
   grid-template-columns: repeat(auto-fit, $size);
   max-width: calc($size * 5);
   justify-content: center;
   justify-items: center;
-  padding-block: 7rem;
   //background-color: lightgray;
 }

@@ -7,6 +7,7 @@ function App() {
     <>
       <Header quantity={3} />
       <Main />
+      <footer>MKS Sistemas © Todos os direitos reservados</footer>
     </>
   );
 }
