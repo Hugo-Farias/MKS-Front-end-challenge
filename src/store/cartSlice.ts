@@ -7,22 +7,8 @@ export type CartStateT = {
 };
 
 const initialState: CartStateT = {
-  items: [
-    {
-      id: 1,
-      name: "Iphone 11 128 GB",
-      brand: "Apple",
-      description:
-        "Grave vídeos 4K, faça belos retratos e capture paisagens inteiras com o novo sistema de câmera dupla.",
-      photo:
-        "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/iphone11x128.webp",
-      price: "5000.00",
-      createdAt: "2023-10-30T16:25:01.093Z",
-      updatedAt: "2023-10-30T16:25:01.093Z",
-      quantity: 1,
-    },
-  ],
-  total: 1,
+  items: [],
+  total: 0,
 };
 
 const cartSlice = createSlice({
