@@ -1,5 +1,30 @@
 @import "../variables";
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  bottom: 50%;
+  translate: -50% 50%;
+  //noinspection CssReplaceWithShorthandSafely
+  border: 1.6rem solid #f3f3f3; /* Light grey */
+  //noinspection CssReplaceWithShorthandSafely
+  border-top: 1.6rem solid $color-primary; /* Blue */
+  border-radius: 50%;
+  height: 12rem;
+  aspect-ratio: 1;
+  animation: spin 2s linear infinite;
+}
+
 .main {
   $size: 254px;
   margin: auto;
