@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
 
-let runtime = 2;
+let runtime = 1;
 
 let scrollbarSize: number;
 
@@ -17,7 +17,6 @@ const header = function () {
 
   useEffect(() => {
     if (runtime >= 0) {
-      scrollbarSize = window.innerWidth - document.body.clientWidth;
       runtime--;
       return;
     }
@@ -29,10 +28,11 @@ const header = function () {
   }, [totalItems]);
 
   const handleClick = function () {
-    //@ts-ignore
-    dispatch(toggleCart(true));
+    scrollbarSize = window.innerWidth - document.body.clientWidth;
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = scrollbarSize + "px";
+    //@ts-ignore
+    dispatch(toggleCart(true));
   };
 
   return (
