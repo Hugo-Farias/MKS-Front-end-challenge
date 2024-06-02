@@ -9,7 +9,7 @@ import { toggleCart } from "../store/cartSlice";
 let runtime = 0;
 
 const header = function () {
-  const slice = getSlice().totalItems;
+  const { totalItems, open } = getSlice();
   const dispatch = useDispatch();
   const [update, setUpdate] = useState<null | string>(null);
 
@@ -20,7 +20,7 @@ const header = function () {
     setTimeout(() => {
       setUpdate("");
     }, 200);
-  }, [slice]);
+  }, [totalItems]);
 
   runtime++;
 
@@ -29,12 +29,14 @@ const header = function () {
     dispatch(toggleCart(true));
   };
 
+  document.body.style.overflow = open ? "hidden" : "auto";
+
   return (
     <header className="header">
       <img src={logo} alt="MKS Sistemas logo" />
       <button className={`cart-button ${update}`} onClick={handleClick}>
         <img src={cart} alt="cart image" />
-        <span className="quantity">{slice}</span>
+        <span className="quantity">{totalItems}</span>
       </button>
     </header>
   );
