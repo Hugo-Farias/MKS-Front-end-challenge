@@ -58,7 +58,9 @@ const Checkout = function () {
             <div className="total-price">
               <div>{slice.totalPrice}</div>
             </div>
-            <button className="confirm">Finalizar Compra</button>
+            <button className="confirm" disabled={slice.totalItems === 0}>
+              Finalizar Compra
+            </button>
           </motion.div>
           <div className={`background ${slice.open}`} onClick={handleClose} />
         </>

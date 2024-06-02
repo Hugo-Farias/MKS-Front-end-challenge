@@ -109,6 +109,12 @@
       min-height: 9.7rem;
     }
 
+    &:disabled,
+    &:disabled:hover {
+      cursor: unset;
+      filter: contrast(0.2);
+    }
+
     &:hover {
       background-color: lighten(black, 10);
     }
