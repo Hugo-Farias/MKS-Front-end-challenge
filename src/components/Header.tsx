@@ -16,8 +16,10 @@ const header = function () {
   const [update, setUpdate] = useState<null | string>(null);
 
   useEffect(() => {
-    scrollbarSize = window.innerWidth - document.body.clientWidth;
-    if (runtime <= 2) return;
+    if (runtime <= 2) {
+      scrollbarSize = window.innerWidth - document.body.clientWidth;
+      return;
+    }
     setUpdate("updated");
 
     setTimeout(() => {
