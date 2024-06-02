@@ -3,7 +3,7 @@ $color-primary: #0f52ba;
 $color-light-font: #ffffff;
 
 // Screen
-$screen-desktop: 768px;
+$screen-desktop: 768+1 + px;
 
 //
 @mixin flex-center($justify: center) {

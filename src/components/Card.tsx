@@ -6,7 +6,27 @@ import { ProductT } from "../types";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice";
 
-const Card = function (props: { product: ProductT }) {
+// const placeholder = (
+//   <div
+//     className="card"
+//     style={{ filter: "grayscale(1) brightness(0.9) blur(3px)" }}
+//   >
+//     <img src={""} alt={``} />
+//     <div className="name-price-cont">
+//       <h1 className="name">Lorem ipsum dolor.</h1>
+//       {/*<Price price={0} style={{ filter: "blur(2px)" }}/>*/}
+//     </div>
+//     <div className="description">
+//       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, sapiente.
+//     </div>
+//     <button className={`buy-btn ${`added`}`} disabled={true}>
+//       {/*<img src={buy} alt="buy logo" />*/}
+//       {/*<h2>{"Comprar"}</h2>*/}
+//     </button>
+//   </div>
+// );
+
+const Card = function (props: { product: ProductT; loading: boolean }) {
   const { name, photo, price, description } = props.product;
   const [added, setAdded] = useState<boolean>(false);
   const dispatch = useDispatch();
@@ -16,24 +36,24 @@ const Card = function (props: { product: ProductT }) {
 
     setTimeout(() => setAdded(false), 2000);
 
-    // @ts-ignore
+    //@ts-ignore
     dispatch(addItem(props.product));
   };
 
   return (
-    <div className="card">
+    <div className={`card ${props.loading}`}>
       <img src={photo} alt={`foto ${name}`} />
       <div className="name-price-cont">
         <h1 className="name">{name}</h1>
-        <Price price={+price} />
+        {props.loading || <Price price={+price} />}
       </div>
       <div className="description">{description}</div>
       <button
         className={`buy-btn ${added}`}
         onClick={clickHandle}
-        disabled={added}
+        disabled={added || props.loading}
       >
-        <img src={buy} alt="buy logo" />
+        {props.loading || <img src={buy} alt="buy logo" />}
         <h2>{added ? "Adicionado ao carrinho" : "Comprar"}</h2>
       </button>
     </div>

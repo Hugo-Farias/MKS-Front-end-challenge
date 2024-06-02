@@ -1,7 +1,10 @@
 import "./Products.scss";
 import Card from "./Card";
-import { ProductT } from "../types";
+import { ProductT, ProductsT } from "../types";
 import { useEffect, useState } from "react";
+import DUMMY_DATA from "../../DUMMY_DATA.json";
+
+const { products: dummy }: ProductsT = DUMMY_DATA;
 
 const API_URL =
   "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=20&sortBy=name&orderBy=DESC";
@@ -22,10 +25,10 @@ const Products = function () {
     fetchData().then();
   }, []);
 
-  if (!apiData) return <span className="loading" />;
+  const loadedData = apiData || dummy;
 
-  const jsx = apiData.map((v) => {
-    return <Card key={v.id} product={v} />;
+  const jsx = loadedData.map((v: ProductT) => {
+    return <Card key={v.id} product={v} loading={apiData === null} />;
   });
 
   return <div className="products">{jsx}</div>;
