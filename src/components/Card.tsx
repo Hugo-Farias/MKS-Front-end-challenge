@@ -45,7 +45,7 @@ const Card = function (props: { product: ProductT; loading: boolean }) {
       <img src={photo} alt={`foto ${name}`} />
       <div className="name-price-cont">
         <h1 className="name">{name}</h1>
-        {props.loading || <Price price={+price} />}
+        {props.loading || <Price price={+price} alt={true} />}
       </div>
       <div className="description">{description}</div>
       <button

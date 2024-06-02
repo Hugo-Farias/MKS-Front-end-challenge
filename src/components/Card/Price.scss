@@ -12,10 +12,12 @@
   text-align: center;
 
   @media (min-width: $screen-desktop) {
-    color: black;
-    background-color: transparent;
-    font-weight: 800;
-    font-size: 1.4rem;
+    &:not(.true) {
+      color: black;
+      background-color: transparent;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
   }
 
   &::before {
