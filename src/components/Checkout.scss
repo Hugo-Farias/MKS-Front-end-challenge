@@ -17,6 +17,11 @@
   box-shadow: black;
   background-color: $color-primary;
 
+  @media (min-width: $screen-desktop) {
+    width: 48.6rem;
+    padding: 4rem;
+  }
+
   &.enter-done,
   &.enter-active {
     transform: translateX(0);
@@ -55,6 +60,10 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @media (min-width: $screen-desktop) {
+      gap: 2.3rem;
+    }
   }
 
   & > .total-price {
@@ -64,6 +73,10 @@
     color: $color-light-font;
     font-size: 2.8rem;
     font-weight: 600;
+
+    @media (min-width: $screen-desktop) {
+      margin-bottom: 4rem;
+    }
 
     &::before {
       content: "Total:";
@@ -76,10 +89,7 @@
     }
   }
 
-  //position: relative;
-
   & > .confirm {
-    //position: relative;
     transition: background-color 0.3s ease-in-out;
     border: none;
     min-height: 6.5rem;
@@ -89,6 +99,10 @@
     color: $color-light-font;
     font-size: 2.8rem;
     background-color: black;
+
+    @media (min-width: $screen-desktop) {
+      margin: -4rem;
+    }
 
     &:hover {
       background-color: lighten(black, 10);

@@ -11,6 +11,13 @@
   overflow: hidden;
   padding: 0.5rem 2rem 2rem 2rem;
 
+  @media (min-width: $screen-desktop) {
+    @include flex-center();
+    padding: 2rem;
+    width: 38.5rem;
+    height: 10rem;
+  }
+
   & > .close-btn {
     background-color: transparent;
     border: transparent;
@@ -23,6 +30,10 @@
     width: 13rem;
     display: block;
     margin-inline: auto;
+
+    @media (min-width: $screen-desktop) {
+      width: 8rem;
+    }
   }
 
   & > .name {
@@ -34,7 +45,6 @@
 
   & > .price-quantity-cont {
     @include flex-center(space-between);
-    //background-color: red;
 
     & > .quantity-set {
       @include flex-center(space-evenly);
