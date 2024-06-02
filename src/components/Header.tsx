@@ -18,7 +18,7 @@ const header = function () {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       dispatch(saveCart());
-    }, 1000);
+    }, 500);
   }, [totalItems]);
 
   const handleClick = function () {
