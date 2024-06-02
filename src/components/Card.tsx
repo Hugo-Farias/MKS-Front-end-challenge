@@ -6,26 +6,6 @@ import { ProductT } from "../types";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice";
 
-// const placeholder = (
-//   <div
-//     className="card"
-//     style={{ filter: "grayscale(1) brightness(0.9) blur(3px)" }}
-//   >
-//     <img src={""} alt={``} />
-//     <div className="name-price-cont">
-//       <h1 className="name">Lorem ipsum dolor.</h1>
-//       {/*<Price price={0} style={{ filter: "blur(2px)" }}/>*/}
-//     </div>
-//     <div className="description">
-//       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, sapiente.
-//     </div>
-//     <button className={`buy-btn ${`added`}`} disabled={true}>
-//       {/*<img src={buy} alt="buy logo" />*/}
-//       {/*<h2>{"Comprar"}</h2>*/}
-//     </button>
-//   </div>
-// );
-
 const Card = function (props: { product: ProductT; loading: boolean }) {
   const { name, photo, price, description } = props.product;
   const [added, setAdded] = useState<boolean>(false);
