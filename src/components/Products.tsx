@@ -7,7 +7,7 @@ import DUMMY_DATA from "../../DUMMY_DATA.json";
 const { products: dummy }: ProductsT = DUMMY_DATA;
 
 const API_URL =
-  "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=20&sortBy=name&orderBy=DESC";
+  "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=name&orderBy=DESC";
 
 const Products = function () {
   const [apiData, setApiData] = useState<ProductT[] | null>(null);
