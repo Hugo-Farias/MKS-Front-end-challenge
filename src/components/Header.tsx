@@ -2,22 +2,30 @@ import "./Header.scss";
 import logo from "../assets/logo.svg";
 import cart from "../assets/cart.svg";
 import { getSlice } from "../helper";
-// import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleCart } from "../store/cartSlice";
+import { saveCart, toggleCart } from "../store/cartSlice";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 let scrollbarSize: number;
+let timeout: number;
 
 const header = function () {
   const { totalItems } = getSlice();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      dispatch(saveCart());
+    }, 1000);
+  }, [totalItems]);
+
   const handleClick = function () {
     scrollbarSize = window.innerWidth - document.body.clientWidth;
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = scrollbarSize + "px";
-    //@ts-ignore
+
     dispatch(toggleCart(true));
   };
 

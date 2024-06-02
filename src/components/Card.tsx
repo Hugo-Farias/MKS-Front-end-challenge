@@ -16,7 +16,6 @@ const Card = function (props: { product: ProductT; loading: boolean }) {
 
     setTimeout(() => setAdded(false), 2000);
 
-    //@ts-ignore
     dispatch(addItem(props.product));
   };
 

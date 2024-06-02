@@ -25,24 +25,19 @@ const CheckoutCard = function (props: checkoutT) {
 
   const handleQuantity = function (add: boolean) {
     if (add) {
-      //@ts-ignore
       dispatch(increaseQuantity(id));
     } else {
-      //@ts-ignore
       dispatch(decreaseQuantity(id));
     }
   };
 
   const handleRemove = function () {
-    //@ts-ignore
     dispatch(removeItem({ id: id, price: +price, quantity: quantity }));
   };
 
   return (
     <motion.div
       layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
       transition={{ duration: 0.1 }}
       exit={{ opacity: 0 }}
       className="checkout-card"

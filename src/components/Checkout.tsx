@@ -26,7 +26,7 @@ const Checkout = function () {
   const handleClose = function () {
     document.body.style.overflow = "auto";
     document.body.style.paddingRight = "0";
-    //@ts-ignore
+
     dispatch(toggleCart(false));
   };
 

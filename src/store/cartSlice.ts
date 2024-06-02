@@ -8,7 +8,13 @@ export type CartStateT = {
   totalPrice: number;
 };
 
-const initialState: CartStateT = {
+export const storageKey = "cart";
+
+const storageState: CartStateT | null = JSON.parse(
+  localStorage.getItem(storageKey)!
+);
+
+const initialState: CartStateT = storageState || {
   open: false,
   items: [],
   totalItems: 0,
@@ -57,6 +63,12 @@ const cartSlice = createSlice({
     toggleCart: (state, { payload }: PayloadAction<boolean>) => {
       state.open = payload;
     },
+    saveCart: (state) => {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify({ ...state, open: false })
+      );
+    },
   },
 });
 
@@ -66,6 +78,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   toggleCart,
+  saveCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
