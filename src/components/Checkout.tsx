@@ -5,6 +5,7 @@ import { getSlice } from "../helper";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
 import { CSSTransition } from "react-transition-group";
+import { AnimatePresence } from "framer-motion";
 import React from "react";
 
 const Checkout = function () {
@@ -51,7 +52,11 @@ const Checkout = function () {
               <img src={closeBtn} alt="close button" />
             </button>
           </div>
-          <div className="main-section">{checkoutJSX}</div>
+
+          <div className="main-section">
+            <AnimatePresence>{checkoutJSX}</AnimatePresence>
+          </div>
+
           <div className="total-price">
             <div>{slice.totalPrice}</div>
           </div>

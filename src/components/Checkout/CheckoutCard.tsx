@@ -4,6 +4,7 @@ import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
 import Price from "../Card/Price";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 import {
   decreaseQuantity,
   increaseQuantity,
@@ -38,7 +39,14 @@ const CheckoutCard = function (props: checkoutT) {
   };
 
   return (
-    <div className="checkout-card">
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.1 }}
+      exit={{ opacity: 0 }}
+      className="checkout-card"
+    >
       <button className="close-btn" onClick={handleRemove}>
         <img src={x} alt="close button" />
       </button>
@@ -56,7 +64,7 @@ const CheckoutCard = function (props: checkoutT) {
         </div>
         <Price price={+price} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
