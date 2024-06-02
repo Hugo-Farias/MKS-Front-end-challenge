@@ -4,15 +4,11 @@ import CheckoutCard from "./Checkout/CheckoutCard";
 import { getSlice } from "../helper";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
-import { CSSTransition } from "react-transition-group";
-import { AnimatePresence } from "framer-motion";
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Checkout = function () {
   const slice = getSlice();
   const dispatch = useDispatch();
-  // Workaround for React Transition Group STILL using deprecated code!!!
-  const nodeRef = React.useRef(null);
 
   const checkoutJSX = slice.items.map((v) => {
     return (
@@ -35,36 +31,39 @@ const Checkout = function () {
   };
 
   return (
-    <CSSTransition
-      nodeRef={nodeRef}
-      in={slice.open}
-      timeout={1000}
-      unmountOnExit
-    >
-      <>
-        <div className="checkout" ref={nodeRef}>
-          <div className="top">
-            <h1>
-              Carrinho
-              <br /> de compras
-            </h1>
-            <button className="close-btn" onClick={handleClose}>
-              <img src={closeBtn} alt="close button" />
-            </button>
-          </div>
+    <AnimatePresence>
+      {slice.open && (
+        <>
+          <motion.div
+            className="checkout"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="top">
+              <h1>
+                Carrinho
+                <br /> de compras
+              </h1>
+              <button className="close-btn" onClick={handleClose}>
+                <img src={closeBtn} alt="close button" />
+              </button>
+            </div>
 
-          <div className="main-section">
-            <AnimatePresence>{checkoutJSX}</AnimatePresence>
-          </div>
+            <div className="main-section">
+              <AnimatePresence>{checkoutJSX}</AnimatePresence>
+            </div>
 
-          <div className="total-price">
-            <div>{slice.totalPrice}</div>
-          </div>
-          <button className="confirm">Finalizar Compra</button>
-        </div>
-        <div className={`background ${slice.open}`} onClick={handleClose} />
-      </>
-    </CSSTransition>
+            <div className="total-price">
+              <div>{slice.totalPrice}</div>
+            </div>
+            <button className="confirm">Finalizar Compra</button>
+          </motion.div>
+          <div className={`background ${slice.open}`} onClick={handleClose} />
+        </>
+      )}
+    </AnimatePresence>
   );
 };
 

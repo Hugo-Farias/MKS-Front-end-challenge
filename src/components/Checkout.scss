@@ -1,8 +1,6 @@
 @import "../variables";
 
 .checkout {
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(100%);
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -20,11 +18,6 @@
   @media (min-width: $screen-desktop) {
     width: 48.6rem;
     padding: 4rem;
-  }
-
-  &.enter-done,
-  &.enter-active {
-    transform: translateX(0);
   }
 
   & > .top {
