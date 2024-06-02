@@ -8,12 +8,15 @@ import { toggleCart } from "../store/cartSlice";
 
 let runtime = 0;
 
+let scrollbarSize: number;
+
 const header = function () {
   const { totalItems, open } = getSlice();
   const dispatch = useDispatch();
   const [update, setUpdate] = useState<null | string>(null);
 
   useEffect(() => {
+    scrollbarSize = window.innerWidth - document.body.clientWidth;
     if (runtime <= 2) return;
     setUpdate("updated");
 
@@ -30,6 +33,7 @@ const header = function () {
   };
 
   document.body.style.overflow = open ? "hidden" : "auto";
+  document.body.style.paddingRight = open ? scrollbarSize + "px" : "0";
 
   return (
     <header className="header">
