@@ -31,9 +31,8 @@
       right: 0;
       bottom: 0;
       left: 0;
-      height: 100%;
       transform: translateX(-100%);
-      animation: shimmer 2s infinite;
+      animation: shimmer 1s infinite;
       background-image: linear-gradient(
         90deg,
         rgba(#fff, 0) 0,
@@ -48,9 +47,7 @@
     }
 
     & > .buy-btn {
-      & > h2 {
-        color: transparent;
-      }
+      display: none;
     }
   }
 

@@ -53,7 +53,7 @@ const Card = function (props: { product: ProductT; loading: boolean }) {
         onClick={clickHandle}
         disabled={added || props.loading}
       >
-        {props.loading || <img src={buy} alt="buy logo" />}
+        <img src={buy} alt="buy logo" />
         <h2>{added ? "Adicionado ao carrinho" : "Comprar"}</h2>
       </button>
     </div>
