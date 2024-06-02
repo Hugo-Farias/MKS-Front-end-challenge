@@ -2,30 +2,16 @@ import "./Header.scss";
 import logo from "../assets/logo.svg";
 import cart from "../assets/cart.svg";
 import { getSlice } from "../helper";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
-
-let runtime = 1;
+import { motion } from "framer-motion";
 
 let scrollbarSize: number;
 
 const header = function () {
   const { totalItems } = getSlice();
   const dispatch = useDispatch();
-  const [update, setUpdate] = useState<null | string>(null);
-
-  useEffect(() => {
-    if (runtime >= 0) {
-      runtime--;
-      return;
-    }
-    setUpdate("updated");
-
-    setTimeout(() => {
-      setUpdate("");
-    }, 200);
-  }, [totalItems]);
 
   const handleClick = function () {
     scrollbarSize = window.innerWidth - document.body.clientWidth;
@@ -38,10 +24,16 @@ const header = function () {
   return (
     <header className="header">
       <img src={logo} alt="MKS Sistemas logo" />
-      <button className={`cart-button ${update}`} onClick={handleClick}>
+      <motion.button
+        className="cart-button"
+        onClick={handleClick}
+        key={totalItems}
+        animate={{ y: [0, 10, 0, -5, 0] }}
+        transition={{ duration: 0.1 }}
+      >
         <img src={cart} alt="cart image" />
         <span className="quantity">{totalItems}</span>
-      </button>
+      </motion.button>
     </header>
   );
 };

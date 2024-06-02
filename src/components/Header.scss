@@ -1,23 +1,5 @@
 @import "../variables";
 
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(10px); /* Initial jump height */
-  }
-  50% {
-    transform: translateY(0); /* Start coming down */
-  }
-  75% {
-    transform: translateY(-5px); /* Add weight, go down further */
-  }
-  100% {
-    transform: translateY(0); /* Final position */
-  }
-}
-
 .header {
   position: fixed;
   z-index: 1;
@@ -42,10 +24,6 @@
     & > .quantity {
       font-family: inherit;
       font-weight: 700;
-    }
-
-    &.updated {
-      animation: jump 0.1s ease-out forwards;
     }
 
     @media (min-width: $screen-desktop) {
