@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
 
-let runtime = 0;
+let runtime = 2;
 
 let scrollbarSize: number;
 
@@ -16,8 +16,9 @@ const header = function () {
   const [update, setUpdate] = useState<null | string>(null);
 
   useEffect(() => {
-    if (runtime <= 2) {
+    if (runtime >= 0) {
       scrollbarSize = window.innerWidth - document.body.clientWidth;
+      runtime--;
       return;
     }
     setUpdate("updated");
@@ -26,8 +27,6 @@ const header = function () {
       setUpdate("");
     }, 200);
   }, [totalItems]);
-
-  runtime++;
 
   const handleClick = function () {
     //@ts-ignore

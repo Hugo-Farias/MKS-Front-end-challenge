@@ -5,10 +5,13 @@ import { getSlice } from "../helper";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/cartSlice";
 import { CSSTransition } from "react-transition-group";
+import React from "react";
 
 const Checkout = function () {
   const slice = getSlice();
   const dispatch = useDispatch();
+  // Workaround for React Transition Group STILL using deprecated code!!!
+  const nodeRef = React.useRef(null);
 
   const checkoutJSX = slice.items.map((v) => {
     return (
@@ -31,9 +34,14 @@ const Checkout = function () {
   };
 
   return (
-    <CSSTransition in={slice.open} timeout={1000} unmountOnExit>
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={slice.open}
+      timeout={1000}
+      unmountOnExit
+    >
       <>
-        <div className="checkout">
+        <div className="checkout" ref={nodeRef}>
           <div className="top">
             <h1>
               Carrinho
