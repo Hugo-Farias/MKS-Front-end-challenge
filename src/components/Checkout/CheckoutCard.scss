@@ -5,15 +5,13 @@
   background-color: #ffffff;
   border-radius: 0.8rem;
   box-shadow: rgba(0, 0, 0, 0.23) -5px 5px 10px;
-  width: 25rem;
-  //height: 22rem;
-  margin-inline: auto;
-  overflow: hidden;
+  min-width: 100%;
+  //margin-inline: auto;
   padding: 0.5rem 2rem 2rem 2rem;
 
   @media (min-width: $screen-desktop) {
     @include flex-center();
-    padding: 2rem;
+    padding: 1rem;
     width: 38.5rem;
     height: 10rem;
   }
@@ -24,6 +22,25 @@
     position: absolute;
     right: 1.4rem;
     top: 1rem;
+
+    @media (min-width: $screen-desktop) {
+      @include flex-center();
+      background-color: black;
+      padding: 0.5rem;
+      width: 1.8rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      top: -0.7rem;
+      right: -0.7rem;
+    }
+
+    & > img {
+      width: 100%;
+
+      @media (min-width: $screen-desktop) {
+        filter: invert(100);
+      }
+    }
   }
 
   & > img {
@@ -32,7 +49,8 @@
     margin-inline: auto;
 
     @media (min-width: $screen-desktop) {
-      width: 8rem;
+      width: 7rem;
+      margin-right: 1rem;
     }
   }
 
@@ -41,6 +59,10 @@
     text-align: center;
     font-size: 1.6rem;
     margin-block: 2rem;
+
+    @media (min-width: $screen-desktop) {
+      text-align: left;
+    }
   }
 
   & > .price-quantity-cont {
@@ -49,7 +71,7 @@
     & > .quantity-set {
       @include flex-center(space-evenly);
       $size: 3.4;
-      border-radius: 0.5rem;
+      border-radius: 0.8rem;
       border: solid 1px rgba(0, 0, 0, 0.11);
       width: $size * 3 + rem;
       aspect-ratio: 3;
@@ -83,6 +105,17 @@
       & > .add::after {
         right: unset;
         left: 0;
+      }
+
+      @media (min-width: $screen-desktop) {
+        transform: scale(0.7);
+
+        &::before {
+          content: "Qtd:";
+          position: absolute;
+          top: -2rem;
+          left: 0;
+        }
       }
     }
   }
