@@ -113,6 +113,7 @@
     &:disabled:hover {
       cursor: unset;
       filter: contrast(0.2);
+      background-color: black;
     }
 
     &:hover {
