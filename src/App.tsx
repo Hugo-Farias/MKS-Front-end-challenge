@@ -5,12 +5,12 @@ import Checkout from "./components/Checkout";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
       <Products />
       <Checkout />
       <footer>MKS Sistemas © Todos os direitos reservados</footer>
-    </>
+    </div>
   );
 }
 

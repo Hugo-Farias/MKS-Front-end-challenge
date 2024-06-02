@@ -80,6 +80,7 @@
 
   & > .confirm {
     //position: relative;
+    transition: background-color 0.3s ease-in-out;
     border: none;
     min-height: 6.5rem;
     bottom: 0;
@@ -88,6 +89,10 @@
     color: $color-light-font;
     font-size: 2.8rem;
     background-color: black;
+
+    &:hover {
+      background-color: lighten(black, 10);
+    }
   }
 }
 
