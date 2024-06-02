@@ -28,7 +28,7 @@ const Products = function () {
     return <Card key={v.id} product={v} />;
   });
 
-  return <div className="main">{jsx}</div>;
+  return <div className="products">{jsx}</div>;
 };
 
 export default Products;

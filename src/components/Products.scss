@@ -25,10 +25,9 @@
   animation: spin 2s linear infinite;
 }
 
-.main {
+.products {
   $size: 254px;
   margin: auto;
-  padding-top: 7rem;
   display: grid;
   gap: 1.8rem;
   grid-template-columns: repeat(auto-fit, $size);
@@ -36,4 +35,8 @@
   justify-content: center;
   justify-items: center;
   //background-color: lightgray;
+
+  @media (min-width: $screen-desktop) {
+    padding-top: 9rem;
+  }
 }

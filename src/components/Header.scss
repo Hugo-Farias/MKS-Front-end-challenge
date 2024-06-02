@@ -21,6 +21,7 @@
 .header {
   position: fixed;
   z-index: 1;
+  top: 0;
   width: 100%;
   background-color: $color-primary;
   @include flex-center(space-between);
@@ -29,19 +30,32 @@
 
   & > .cart-button {
     @include flex-center(space-evenly);
-    //background: linear-gradient(to top right, purple, transparent);
     min-height: 2.6rem;
     min-width: 5.2rem;
     border: none;
     border-radius: 0.8rem;
 
+    & > img {
+      width: 20%;
+    }
+
     & > .quantity {
-      font-family: Montserrat, sans-serif;
+      font-family: inherit;
       font-weight: 700;
     }
 
     &.updated {
       animation: jump 0.1s ease-out forwards;
     }
+
+    @media (min-width: $screen-desktop) {
+      min-height: 4.5rem;
+      min-width: 9rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (min-width: $screen-desktop) {
+    min-height: 10.1rem;
   }
 }

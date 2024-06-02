@@ -1,6 +1,11 @@
+// Colors
 $color-primary: #0f52ba;
 $color-light-font: #ffffff;
 
+// Screen
+$screen-desktop: 768px;
+
+//
 @mixin flex-center($justify: center) {
   display: flex;
   align-items: center;
