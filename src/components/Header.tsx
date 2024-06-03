@@ -4,7 +4,7 @@ import cart from "../assets/cart.svg";
 import { getSlice } from "../helper";
 import { useDispatch } from "react-redux";
 import { saveCart, toggleCart } from "../store/cartSlice";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 
 let scrollbarSize: number;
@@ -30,19 +30,21 @@ const header = function () {
   };
 
   return (
-    <header className="header">
-      <img src={logo} alt="MKS Sistemas logo" />
-      <motion.button
-        className="cart-button"
-        onClick={handleClick}
-        key={totalItems}
-        animate={{ y: [0, 10, 0, -5, 0] }}
-        transition={{ duration: 0.1 }}
-      >
-        <img src={cart} alt="cart image" />
-        <span className="quantity">{totalItems}</span>
-      </motion.button>
-    </header>
+    <AnimatePresence initial={false}>
+      <header className="header">
+        <img src={logo} alt="MKS Sistemas logo" />
+        <motion.button
+          className="cart-button"
+          onClick={handleClick}
+          key={totalItems}
+          animate={{ y: [0, 10, 0, -5, 0] }}
+          transition={{ duration: 0.1 }}
+        >
+          <img src={cart} alt="cart image" />
+          <span className="quantity">{totalItems}</span>
+        </motion.button>
+      </header>
+    </AnimatePresence>
   );
 };
 
